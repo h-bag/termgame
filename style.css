@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=VT323&display=swap");
+
+
+body {
+    background:#3f3933;
+}
+.container { 
+  }
+  
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+.screen {
+    background-color: black;
+    background-image: radial-gradient(
+      rgba(0, 102, 0, 0.75), black 120%
+    );
+    height: 88vh;
+    width:94vw;
+    margin: 0;
+    overflow: hidden;
+    padding: 2rem;
+    color: white;
+    font: 1.3rem Inconsolata, monospace;
+    text-shadow: 0 0 5px #C8C8C8;
+}
+
+.screen:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    border: 30px solid transparent;
+    border-image:url(images/bezel.png) 30;
+    border-image-outset:11px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 8px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+
+.screen::selection {
+    background: #0080FF;
+    text-shadow: none;
+  }
+  pre {
+    margin: 0;
+  }
+
+  input {
+    background-color:transparent;
+    border: 0px solid;
+    height:30px;
+    width:260px;
+}
+input:focus {
+    outline:none;
+}
+
+#commandbox {
+    color:#FFF;
+    font-size:1.5em;
+    font-family: "VT323", monospace;
+    width:100%;
+}
