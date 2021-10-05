@@ -75,5 +75,13 @@ input:focus {
     color:#FFF;
     font-size:1.5em;
     font-family: "VT323", monospace;
+    text-transform:uppercase;
+    width:100%;
+}
+
+.output {
+    color:rgb(0, 214, 18);
+    font-size:1.5em;
+    font-family: "VT323", monospace;
     width:100%;
 }
