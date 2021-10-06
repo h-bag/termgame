@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="style.css">
     <!-- load howler.js -->
     <script src="howler/dist/howler.js"></script>
+    <script src="main.js"></script>
     <!-- set up ambience -->
     <script>
         var whirr = new Howl({
@@ -10,14 +11,28 @@
         });
 
         whirr.play();
+
+        // detect when user submits a command
+        document.addEventListener('keydown', function(){
+            if (event.keyCode === 13) {
+                parseCommand(document.getElementById('commandbox').value);
+                // clear commandbox
+                document.getElementById('commandbox').value = '';
+            }
+        })
+
+        // keep focus on input box
+        function forceFocus() {
+            document.getElementById("commandbox").focus();
+        }
     </script>
 </head>
 
-<body>
+<body onClick="forceFocus()">
     <div class="container">
         <div class="center">
             <div class="screen">
-                <div class="output"></div>
+                <div class="output" id="outputBox"></div>
                 <div class="input">
                     <input type="text" name="commandbox" id="commandbox">
                 </div>
