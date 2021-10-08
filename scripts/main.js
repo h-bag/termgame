@@ -2,8 +2,6 @@
 // sort of an entry point for all other scripts, as this is what's ran whenever the player submits
 // ANY command - it's all handled by the parseCommand function
 
-// define output var
-let output = String;
 
 // create player object - put this in its own file later, jackass
 const player = {
@@ -22,21 +20,39 @@ function parseCommand(cmd) {
     getCurrentRoom(); // defined in rooms.js
     switch(splitCmd(cmd)[0].toLowerCase()) {
         case "help":
-            output = "lol. lmao.";
+            printOut("lol. lmao.");
             break;
         case "look":
-            output = (current_room.name + '<br>' + current_room.desc);
+            lookCmd();
             break;
         case "go":
             goCmd(splitCmd(cmd)[1]);
             break;
         // if none of the commands match
         default:
-            output = "That makes no sense. Try using 'HELP'.";
+            printOut("That makes no sense. Try using 'HELP'.");
     }
+}
 
-    // print output shit to user's screen
-    output = ('<p style="color:white;margin:0">&gt;' + cmd.toUpperCase() + '</p>' + output)
+
+
+///////////////////////////////////////////////
+//    OUTPUT FUNCTIONS
+//
+// printOut - prints the user's command, and then
+//            the output of that command
+//
+// printOutNoEcho - like printOut, but doesn't
+//                  echo the user's command
+///////////////////////////////////////////////
+
+function printOutNoEcho(output) {
+    document.getElementById("outputBox").innerHTML += output;
+}
+
+function printOut(output) {
+    cmd = document.getElementById('commandbox').value;
+    output = ('<p style="color:white;margin:0">&gt;' + cmd.toUpperCase() + '</p>' + output);
     document.getElementById("outputBox").innerHTML += output;
 }
 

@@ -8,18 +8,19 @@
         ...here's the github repo though
         https://github.com/h-bag/termgame
     -->
-    
+
     <link rel="stylesheet" href="style.css">
     <!-- load howler.js -->
     <script src="howler/dist/howler.js"></script>
+    <!-- load game scripts -->
     <script src="scripts/main.js"></script>
     <script src="scripts/rooms.js"></script>
+    <script src="scripts/commands.js"></script>
     <!-- set up ambience -->
     <script>
         var whirr = new Howl({
             src: ['audio/compambience.ogg']
         });
-
         whirr.play();
 
         // detect when user submits a command
